@@ -31,7 +31,7 @@ export default function HomePage() {
   async function handleGenerateQr() {
     const location = await getCurrentLocation();
     if (location) {
-      const response = await fetch(`https://attendance-geoloc.onrender.com/gen-url`, {
+      const response = await fetch(`http://localhost:3000/gen-url`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

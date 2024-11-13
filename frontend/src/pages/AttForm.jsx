@@ -12,7 +12,7 @@ export default function AttForm() {
           const location = await getCurrentLocation();
 
           const response = await fetch(
-            `https://attendance-geoloc.onrender.com/verify-access/${formId}`,
+            `http://localhost:3000/verify-access/${formId}`,
             {
               method: "POST",
               headers: { "Content-Type": "application/json" },
