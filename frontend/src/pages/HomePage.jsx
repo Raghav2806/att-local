@@ -27,9 +27,15 @@ export function getCurrentLocation() {
 
 export default function HomePage() {
   const [url, setUrl] = useState(null);
+  const [location, setLocation] = useState(null);
+
+  useEffect(() => {
+    getCurrentLocation()
+      .then((loc) => setLocation(loc))
+      .catch((error) => console.error(error));
+  },[])
 
   async function handleGenerateQr() {
-    const location = await getCurrentLocation();
     if (location) {
       const response = await fetch(`http://localhost:3000/gen-url`, {
         method: "POST",

@@ -10,7 +10,7 @@ export default function AttForm() {
     async function checkLocationAccess() {
       try{
           const location = await getCurrentLocation();
-
+          
           const response = await fetch(
             `http://localhost:3000/verify-access/${formId}`,
             {
