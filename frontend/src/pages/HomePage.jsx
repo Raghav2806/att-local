@@ -28,6 +28,7 @@ export function getCurrentLocation() {
 export default function HomePage() {
   const [url, setUrl] = useState(null);
   const [location, setLocation] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     getCurrentLocation()
@@ -37,6 +38,7 @@ export default function HomePage() {
 
   async function handleGenerateQr() {
     if (location) {
+      setLoading(true);
       const response = await fetch(`http://localhost:3000/gen-url`, {
         method: "POST",
         headers: {
@@ -47,13 +49,22 @@ export default function HomePage() {
 
       const data = await response.json();
       setUrl(data.url);
+      setLoading(false);
     }
   }
   return (
     <>
-      <button onClick={handleGenerateQr}>Generate QR</button>
+    <div className={classes.containerr}>
+      <button className="btn btn-light" onClick={handleGenerateQr}>Generate QR</button>
       <div className={classes.qr}>
-        {url ? <QRCodeSVG value={url} /> : <p>No url</p>}
+      {loading ? (
+          <p>Loading...</p> 
+        ) : url ? (
+          <QRCodeSVG value={url} />
+        ) : (
+          <p>Please generate a QR</p>
+        )}
+      </div>
       </div>
     </>
   );

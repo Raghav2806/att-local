@@ -1,10 +1,5 @@
-.containerr {
+.centre {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-}
-
-.qr {
-    margin-top: 10%;
 }
