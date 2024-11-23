@@ -3,6 +3,8 @@ import RootLayout from "./pages/RootLayout";
 import ErrorPage from "./pages/ErrorPage";
 import HomePage from "./pages/HomePage";
 import AttForm from "./pages/AttForm";
+import { action as attendanceAction } from './components/AttFormAction';
+import SuccessPage from "./pages/SuccessPage";
 
 const router = createBrowserRouter([
   {
@@ -12,7 +14,11 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <HomePage />},
       { path: "form/:formId",
-        element: <AttForm />
+        element: <AttForm />,
+        action: attendanceAction,
+      },
+      { path: "success",
+        element: <SuccessPage />
       }
     ],
   },

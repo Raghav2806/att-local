@@ -1,4 +1,4 @@
-/* AttForm.module.css */
+/* SuccessPage.module.css */
 
 .page {
     display: flex;
@@ -13,7 +13,7 @@
   
   .container {
     background-color: #464646;
-    padding: 20px 30px;
+    padding: 30px 40px;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     text-align: center;
@@ -23,7 +23,8 @@
   
   .container h1 {
     font-size: 2rem;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    color: #64ffda; /* Soft teal for success indication */
   }
   
   .container p {
@@ -31,41 +32,23 @@
     margin-bottom: 20px;
   }
   
-  .message {
-    text-align: center;
-    font-size: 1.2rem;
-    color: #ff5e5e; /* Bright red for denied message */
-    max-width: 300px;
-  }
-  
-  .form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  .centre {
-    display: flex;
-    justify-content: center;
-  }
-  
-  .submitBtn {
+  .homeBtn {
     padding: 10px 20px;
     font-size: 1.2rem;
     color: #ffffff;
-    background: linear-gradient(135deg, #11998e, #38ef7d);
+    background: linear-gradient(135deg, #38ef7d, #11998e); /* Success green gradient */
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
   }
   
-  .submitBtn:hover {
+  .homeBtn:hover {
     transform: scale(1.05);
-    background: linear-gradient(135deg, #38ef7d, #11998e);
+    background: linear-gradient(135deg, #11998e, #38ef7d); /* Reversed gradient */
   }
   
-  .submitBtn:active {
+  .homeBtn:active {
     transform: scale(0.98);
     box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
   }

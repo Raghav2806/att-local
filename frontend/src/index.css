@@ -8,6 +8,6 @@ body {
   font-family: 'Inter', sans-serif;
 }
 
-p {
+p,h1 {
   color: white;
 }

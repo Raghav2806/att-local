@@ -24,7 +24,6 @@ export function getCurrentLocation() {
   });
 }
 
-
 export default function HomePage() {
   const [url, setUrl] = useState(null);
   const [location, setLocation] = useState(null);
@@ -34,7 +33,7 @@ export default function HomePage() {
     getCurrentLocation()
       .then((loc) => setLocation(loc))
       .catch((error) => console.error(error));
-  },[])
+  }, []);
 
   async function handleGenerateQr() {
     if (location) {
@@ -54,17 +53,25 @@ export default function HomePage() {
   }
   return (
     <>
-    <div className={classes.containerr}>
-      <button className="btn btn-light" onClick={handleGenerateQr}>Generate QR</button>
-      <div className={classes.qr}>
-      {loading ? (
-          <p>Loading...</p> 
-        ) : url ? (
-          <QRCodeSVG value={url} />
-        ) : (
-          <p>Please generate a QR</p>
-        )}
-      </div>
+      <div className={classes.page}>
+        <header className={classes.header}>
+          <h1>QR Code <span className={classes.headerspan}>Generator</span></h1>
+          <p>Generate a unique QR code based on your location</p>
+        </header>
+        <div className={classes.containerr}>
+          <button className={classes.generateBtn} onClick={handleGenerateQr}>
+            Generate QR
+          </button>
+          <div className={classes.qr}>
+            {loading ? (
+              <p className={classes.message}>Loading...</p>
+            ) : url ? (
+              <QRCodeSVG value={url} />
+            ) : (
+              <p className={classes.message}>Please generate a QR</p>
+            )}
+          </div>
+        </div>
       </div>
     </>
   );
